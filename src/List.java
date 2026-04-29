@@ -66,9 +66,25 @@ public class List {
 		}
 	}
 
-	public void showList() {
+	public void searchName(String name) {
 		if (isEmpty()) {
 			IO.println("No hay nada en la lista  ");
+		} else {
+			Nodo temp = head;
+			while (temp != null) {
+				if (temp.name.text.equals(name)) {
+					IO.println("Nombre: " + temp.name.text + "\nRaza: " + temp.raza.text + "\nSexo: " + temp.sexo.text
+							+ "\nPeso: " + temp.peso.number_double + "\nFecha: " + temp.fecha.number + "\n\n");
+					return;
+				}
+				temp = temp.next;
+			}
+			IO.println("No se encontro la mascota con el nombre: " + name + "\n\n");
+		}
+	}
+	public void showList() {
+		if (isEmpty()) {
+			IO.println("No hay nada en la lista\n\n");
 		} else {
 			Nodo temp = head;
 			while (temp != null) {
